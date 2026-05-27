@@ -22,8 +22,14 @@ def leer_documento():
         if "Ciudad de origen:" in texto:
             datos["ciudad_origen"] = texto.split(":")[1].strip()
             
+        if "Dirección de origen:" in texto:
+            datos["direccion_origen"] = texto.split(":")[1].strip()
+            
         if "Ciudad destino:" in texto:
             datos["ciudad_destino"] = texto.split(":")[1].strip()
+            
+        if "Dirección de destino:" in texto:
+            datos["direccion_destino"] = texto.split(":")[1].strip()
             
         if "Peso total (kg):" in texto:
             datos["peso_total"] = texto.split(":")[1].strip()
