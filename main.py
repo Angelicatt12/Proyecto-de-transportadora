@@ -3,6 +3,7 @@ from modelos.orden import Orden
 from modelos.transportadora import Transportadora
 from servicios.comparador import obtener_mejor_opcion
 from servicios.calculadora_envios import calcular_costo
+from servicios.seleccion_usuario import seleccionar_transportadora
 
 datos = leer_documento()
 
@@ -68,20 +69,39 @@ costos = {
     }
 }
 
-nombre, costos, dias = obtener_mejor_opcion(
+nombre, costo, dias = obtener_mejor_opcion(
     costos,
     int(orden.tiempo_entrega)
 )
 
-print("\nTransportadora sugerida:")
-print(nombre)
+transportadora_final = seleccionar_transportadora(
+    costos,
+    nombre
+)
+
+costo_final = costos[transportadora_final]["costo"]
+dias_final = costos[transportadora_final]["dias"]
+
+print("Transportadora seleccionada:")
+print(transportadora_final)
+
+print("\nResumen del despacho")
+print("----------------------")
+
+print("Cliente:")
+print(orden.cliente)
+
+print("Origen:")
+print(orden.origen)
+
+print("Destino:")
+print(orden.destino)
+
+print("Transportadora elegida:")
+print(transportadora_final)
 
 print("Costo:")
-print(f"${costos:,} COP")
+print(f"${costo_final:,} COP")
 
 print("Tiempo estimado:")
 print(dias, "días")
-
-print(orden.cliente)
-print(orden.origen)
-print(orden.destino)
