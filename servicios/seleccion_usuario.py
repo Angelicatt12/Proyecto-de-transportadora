@@ -1,13 +1,15 @@
 def seleccionar_transportadora(costos, sugerida):
     
-    print("\nLa transportadora sugerida es: ")
-    print(sugerida)
-    
     print("\n¿Acepta la sugerencia?")
     print("1. Sí")
     print("2. No, quiero ver otras opciones")
     
-    opcion = input("Ingrese una opción: ")
+    opcion = int(
+        input("Ingrese una opción: ")
+    )
+    
+    if opcion == 1:
+        return sugerida
     
     nombres = list(costos.keys())
     
@@ -17,14 +19,11 @@ def seleccionar_transportadora(costos, sugerida):
         dias = costos[nombre]["dias"]
         
         print(
-            f"{i}. {nombre}"
-        )
+            f"{i}. {nombre}")
         print(
-            f"   Costo: ${costo:,} COP"
-        )
+            f"   Costo: ${costo:,} COP")
         print(
-            f"   Tiempo: {dias} días\n"
-        )
+            f"   Tiempo: {dias} días\n")
         
     seleccion = int(
         input("Ingrese una opción: ")

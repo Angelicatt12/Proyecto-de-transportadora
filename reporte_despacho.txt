@@ -1,0 +1,11 @@
+======== REPORTE DE DESPACHO ========
+
+Cliente: Juan Pérez
+Origen: Bogotá
+Destino: Medellín
+Transportadora elegida: Servientrega
+Costo: $60,000 COP
+Tiempo estimado: 2 días
+Estado del despacho: En proceso
+
+=====================================
