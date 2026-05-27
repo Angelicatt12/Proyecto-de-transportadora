@@ -5,7 +5,7 @@ def generador_reporte(
     dias
 ):
     with open(
-        "reporte_despacho.txt",
+        f"reporte_despacho_{orden.numero}.txt",
         "w",
         encoding="utf-8"
     ) as archivo:
@@ -47,5 +47,6 @@ def generador_reporte(
         )
         
     print(
-        "\nReporte generado correctamente."
-    )    
+        "\nReporte generado en:"
+        f" reporte_despacho_{orden.numero}.txt"
+    )
