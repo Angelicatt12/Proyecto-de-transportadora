@@ -1,6 +1,7 @@
 from servicios.lector_word import leer_documento
 from modelos.orden import Orden
 from modelos.transportadora import Transportadora
+from servicios.comparador import obtener_mejor_opcion
 from servicios.calculadora_envios import calcular_costo
 
 datos = leer_documento()
@@ -21,41 +22,66 @@ orden = Orden(
 
 servientrega = Transportadora(
     "Servientrega",
-    5000,
-    1000
+    18000,
+    3500,
+    2
 )
 
 coordinadora = Transportadora(
     "Coordinadora",
-    4000,
-    1200
+    15000,
+    3000,
+    3
 )
 
 interrapidisimo = Transportadora(
     "Interrapidisimo",
-    6000,
-    800
+    12000,
+    2800,
+    5
 )
 
-costo_servientrega = calcular_costo(
-    servientrega,
-    orden
+costos = {
+    
+    servientrega.nombre: {
+        "costo": calcular_costo(
+            servientrega,
+            orden
+        ),
+        "dias": servientrega.dias_entrega
+    },
+    
+    coordinadora.nombre: {
+        "costo": calcular_costo(
+            coordinadora,
+            orden
+        ),
+        "dias": coordinadora.dias_entrega
+    },
+    
+    interrapidisimo.nombre: {
+        "costo": calcular_costo(
+            interrapidisimo,
+            orden
+        ),
+        "dias": interrapidisimo.dias_entrega
+    }
+}
+
+nombre, costos, dias = obtener_mejor_opcion(
+    costos,
+    int(orden.tiempo_entrega)
 )
 
-costo_coordinadora = calcular_costo(
-    coordinadora,
-    orden
-)
+print("\nTransportadora sugerida:")
+print(nombre)
 
-costo_interrapidisimo = calcular_costo(
-    interrapidisimo,
-    orden
-)
+print("Costo:")
+print(f"${costos:,} COP")
+
+print("Tiempo estimado:")
+print(dias, "días")
 
 print(orden.cliente)
 print(orden.origen)
 print(orden.destino)
-
-print(costo_servientrega)
-print(costo_coordinadora)
-print(costo_interrapidisimo)
