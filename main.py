@@ -1,6 +1,7 @@
 from servicios.lector_word import leer_documento
 from modelos.orden import Orden
 from modelos.transportadora import Transportadora
+from servicios.calculadora_envios import calcular_costo
 
 datos = leer_documento()
 
@@ -36,6 +37,25 @@ interrapidisimo = Transportadora(
     800
 )
 
+costo_servientrega = calcular_costo(
+    servientrega,
+    orden
+)
+
+costo_coordinadora = calcular_costo(
+    coordinadora,
+    orden
+)
+
+costo_interrapidisimo = calcular_costo(
+    interrapidisimo,
+    orden
+)
+
 print(orden.cliente)
 print(orden.origen)
 print(orden.destino)
+
+print(costo_servientrega)
+print(costo_coordinadora)
+print(costo_interrapidisimo)
