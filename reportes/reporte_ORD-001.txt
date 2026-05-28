@@ -1,0 +1,11 @@
+======== REPORTE DE DESPACHO ========
+
+Cliente: Juan Pérez
+Origen: Bogotá
+Destino: Medellín
+Transportadora elegida: Coordinadora
+Costo: $51,000 COP
+Tiempo estimado: 3 días
+Estado del despacho: En proceso
+
+=====================================
