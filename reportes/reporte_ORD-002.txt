@@ -1,0 +1,11 @@
+======== REPORTE DE DESPACHO ========
+
+Cliente: Angelica Torres
+Origen: Cali
+Destino: Barranquilla
+Transportadora elegida: Interrapidisimo
+Costo: $68,000 COP
+Tiempo estimado: 5 días
+Estado del despacho: En proceso
+
+=====================================
